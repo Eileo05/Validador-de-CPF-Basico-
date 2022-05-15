@@ -6,21 +6,21 @@ function validacpf(cpf) {
     if (!cpfIsValid(cpf)) return false;
 
 
-    let filterredCPF = '';
+    let filteredCPF = '';
 
     // verifica se o cpf contem apenas numeros e atribui a uma variavel
     // apenas os numeros
     if (cpf.length === 11) {
-        filterredCPF = cpf;
+        filteredCPF = cpf;
 
     } else {
-        filterredCPF = cpf.replace(/[^0-9]/g, '');
+        filteredCPF = cpf.replace(/[^0-9]/g, '');
 
     }
 
     // Numeros separados de digitos
-    let numeros = filterredCPF.substring(0, 9);
-    const digitos = filterredCPF.substring(9);
+    let numeros = filteredCPF.substring(0, 9);
+    const digitos = filteredCPF.substring(9);
 
 
     let soma = 0;
@@ -38,7 +38,7 @@ function validacpf(cpf) {
     }
 
     soma = 0;
-    numeros = filterredCPF.substring(0, 10);
+    numeros = filteredCPF.substring(0, 10);
 
     for (var k = 11; k > 1; k--) {
         soma += numeros.charAt(11 - k) * k;
